@@ -1,1 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+}
 
+.login-container, .dashboard-container {
+    width: 300px;
+    margin: auto;
+    padding-top: 50px;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
