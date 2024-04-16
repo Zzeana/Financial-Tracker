@@ -1,24 +1,132 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Font and Background */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f7;
+    color: #333;
+    line-height: 1.6;
 }
 
-.login-container, .dashboard-container {
-    width: 300px;
-    margin: auto;
-    padding-top: 50px;
+/* Main Container */
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px; /* Rounded corners for container */
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-input[type="text"], input[type="password"] {
+/* Header */
+header {
+    text-align: center;
     width: 100%;
-    padding: 8px;
-    margin: 10px 0;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    color: #585858;
 }
 
-button {
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #333;
+}
+
+/* Form and Chart Containers */
+.form-container,
+.chart-container {
+    background-color: #fafafa; /* Lighter background for containers */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners for inner containers */
+    margin-bottom: 20px;
+}
+
+/* Expense Form Styling */
+.expense-form input[type="text"],
+.expense-form input[type="number"],
+.expense-form select,
+.expense-form button {
     width: 100%;
-    padding: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 8px; /* Rounded corners for form elements */
+}
+
+/* Buttons */
+.expense-form button {
     background-color: #4CAF50;
     color: white;
-    border: none;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.expense-form button:hover {
+    background-color: #45a049;
+}
+
+/* Table Styling */
+.expense-display table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+.expense-display th,
+.expense-display td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    border-radius: 8px; /* Optional: Rounded corners for table cells */
+}
+
+.expense-display th {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Total Amount */
+.total-amount {
+    font-size: 1.5rem;
+    text-align: right;
+    color: #333;
+}
+
+/* Delete Button */
+.delete-btn {
+    color: #d32f2f;
     cursor: pointer;
+    text-align: center;
+    display: inline-block; /* To apply padding and margin */
+    padding: 2px 8px;
+    border-radius: 5px; /* Rounded corners for delete button */
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.delete-btn:hover {
+    background-color: #d32f2f;
+    color: white;
+}
+
+.chart-container {
+    flex: 2 1 55%; /* Give more flex-basis percentage for the chart */
+    min-width: 300px; /* Ensure it doesn't get too small on narrow screens */
+    /* Other styles */
+}
+
+@media (max-width: 768px) {
+    .form-container,
+    .chart-container {
+        flex: 1 1 100%; /* Make them stack on smaller screens */
+    }
 }
