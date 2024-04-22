@@ -130,3 +130,53 @@ header h1 {
         flex: 1 1 100%; /* Make them stack on smaller screens */
     }
 }
+
+/* Login Form Styling */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 60px auto 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px; /* Consistent with your other elements */
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1); /* Same shadow as container */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"],
+.login-form button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px; /* Consistent rounded corners */
+    font-family: 'Roboto', sans-serif; /* Consistent font */
+}
+
+.login-form button {
+    background-color: #4CAF50; /* Matching button color */
+    color: white;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.login-form button:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+}
+
+#login-error-message {
+    color: #d32f2f; /* Consistent error color */
+    margin-top: 10px;
+    display: none; /* Hidden by default */
+}
+
+/* Responsive adjustment for login container */
+@media (max-width: 768px) {
+    .login-container {
+        margin: 20px auto;
+        width: 90%;
+    }
+}
