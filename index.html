@@ -9,7 +9,18 @@
 </head>
 
 <body>
-    <div class="container">
+    <div id="login-container" class="login-container">
+        <h2>Login</h2>
+        <form id="login-form" class="login-form">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <div id="login-error-message" style="color: red; display: none;"></div>
+        </form>
+    </div>
+
+    <!-- Main container for the Expense Tracker, initially hidden -->
+    <div class="container" style="display: none;">
         <header>
             <h1>Expense Tracker</h1>
         </header>
@@ -17,6 +28,7 @@
             <div class="form-container">
                 <form id="expense-form" class="expense-form">
                     <input type="text" id="expense-name" placeholder="Enter expense name" required>
+                    <div id="error-message" style="color: red; display: none;"></div>
                     <input type="number" id="expense-amount" placeholder="Enter amount" required>
                     <select id="expense-category">
                         <option value="Transportation">Transportation</option>
@@ -47,8 +59,9 @@
                 <canvas id="categoryChart"></canvas>
             </div>
         </main>
-    </div>    
+    </div>
     <script src="script.js"></script>
 </body>
+
 
 </html>

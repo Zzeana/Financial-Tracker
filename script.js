@@ -84,15 +84,18 @@ function updateChart(expenses) {
     );
 }
   
-// Function to add expense 
+// Function to add expense
 function addExpense(event) {
     event.preventDefault();
+
+    // Get the error message element
+    const errorMessageElement = document.getElementById("error-message");
 
     // Get expense name, amount, and category from form
     const expenseNameInput = document.getElementById("expense-name");
     const expenseAmountInput = document.getElementById("expense-amount");
     const expenseCategorySelect = document.getElementById("expense-category");
-    const expenseName = expenseNameInput.value;
+    const expenseName = expenseNameInput.value.trim();
     const expenseAmount = parseFloat(expenseAmountInput.value);
     const expenseCategory = expenseCategorySelect.value;
 
@@ -102,10 +105,19 @@ function addExpense(event) {
     expenseCategorySelect.selectedIndex = 0;  // Resets the dropdown to the first option
 
     // Validate inputs
-    if (expenseName === "" || isNaN(expenseAmount)) {
-        alert("Please enter valid expense details.");
+    if (expenseName === "" || expenseName.length > 20) {
+        errorMessageElement.textContent = "Please enter a valid expense name (1-20 characters).";
+        errorMessageElement.style.display = "block"; // Show the error message
         return;
     }
+    if (isNaN(expenseAmount) || expenseAmount <= 0) {
+        errorMessageElement.textContent = "Please enter a valid expense amount (greater than 0).";
+        errorMessageElement.style.display = "block"; // Show the error message
+        return;
+    }
+
+    // If input is valid, hide the error message
+    errorMessageElement.style.display = "none";
 
     // Create new expense object
     const expense = {
@@ -120,6 +132,7 @@ function addExpense(event) {
     // Render expenses
     renderExpenses();
 }
+
   
 
 
@@ -142,6 +155,44 @@ function deleteExpense(event) {
 // Add event listeners 
 expenseForm.addEventListener("submit", addExpense); 
 expenseList.addEventListener("click", deleteExpense); 
+
+document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const loginErrorMessage = document.getElementById('login-error-message');
+
+    if (username === "admin" && password === "password") { // Replace with secure validation in production
+        document.getElementById('login-container').style.display = 'none';
+        document.querySelector('.container').style.display = 'block';
+        renderExpenses();  // Render expenses if login is successful
+    } else {
+        loginErrorMessage.textContent = "Invalid username or password";
+        loginErrorMessage.style.display = 'block';
+    }
+});
+
+document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const loginErrorMessage = document.getElementById('login-error-message');
+
+    if (username === "admin" && password === "password") {
+        document.getElementById('login-container').style.display = 'none';  // Hide login form
+        document.querySelector('.container').style.display = 'block';  // Show the main container
+        renderExpenses();  // Render expenses if login is successful
+    } else {
+        loginErrorMessage.textContent = "Invalid username or password";
+        loginErrorMessage.style.display = 'block';
+    }
+});
+
+
+// Hide the main content initially
+document.querySelector('.container').style.display = 'none';
   
 // Render initial expenses on page load 
 renderExpenses();
