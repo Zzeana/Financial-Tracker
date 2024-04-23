@@ -1,6 +1,6 @@
 # Financial-Tracker
 
-The Expense Tracker is a web application designed to help users manage their expenses efficiently. It allows users to add, view, and delete expenses while also visualizing them through a categorical breakdown chart.
+The Financial Tracker is a web application designed to help users manage their expenses efficiently. It allows users to add, view, and delete expenses while also visualizing them through a categorical breakdown chart.
 
 ## Features
 
@@ -32,7 +32,7 @@ To run this project:
 4. **Viewing Expenses**: All added expenses can be viewed under the expense list section and their summarized totals and categories in the chart.
 
 ## Team Members:
-La Alsulaim
-Zeana El-Hajomar
-Tassneem Khattab
+La Alsulaim, 
+Zeana El-Hajomar, 
+Tassneem Khattab, 
 Tian Xie
